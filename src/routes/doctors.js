@@ -4,6 +4,9 @@ const controller= require("../controllers/doctorsController")
 
 router.post("/", controller.createDoctor)
 router.get("/", controller.getAllDoctors)
-// router.get("/", controller.getOneDoctor)
+router.get("/:id", controller.getOneDoctor)
+router.put("/:id", controller.updateDoctor)
+
+
 
 module.exports = router
