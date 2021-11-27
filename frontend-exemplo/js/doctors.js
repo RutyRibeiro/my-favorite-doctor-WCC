@@ -1,6 +1,7 @@
 var objJson = [];
 
 const URL = `https://my-favorite-doctor.herokuapp.com/doctors`;
+// const URL = `http://localhost:8089/doctors/`;
 
 function getDoctors() {
   fetch(URL)
@@ -35,7 +36,7 @@ function preencherDados(lista) {
     let itemDaLinhaCrm = document.createElement("td");
     itemDaLinhaCrm.innerHTML = element.crm;
     let itemDaLinhaSpeciality = document.createElement("td");
-    itemDaLinhaSpeciality.innerHTML = element.specialty;
+    itemDaLinhaSpeciality.innerHTML = element.speciality;
     let itemDaLinhaClinc = document.createElement("td");
     itemDaLinhaClinc.innerHTML = element.clinic;
     let itemDaLinhaPhone = document.createElement("td");
@@ -65,7 +66,7 @@ function preencherDados(lista) {
 
     const buttonDel = document.createElement("button");
     buttonDel.addEventListener("click", function () {
-      fetch(`${URL}/${element.id}`, {
+      fetch(`${URL}${element.id}`, {
         method: "DELETE",
       })
         .then((resposta) => resposta.json())
