@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express()
 const doctors = require("./routes/doctors")
+const cors = require("cors")
 
 app.use(express.json())
 
@@ -12,16 +13,7 @@ app.use((req, res, next)=>{
     next();
 });
 
-app.options("/*", (req, res) => {
-    res.header("Access-Control-Allow-Origin", "*")
-    res.header("Access-Control-Allow-Headers")
-    res.header(
-        "Access-Control-Allow-Methods",
-        "PUT,POST,GET,DELETE,OPTIONS,PATCH"
-    );
-    res.send("send some thing whatever")
-})
-
+app.use(cors())
 app.use("/", index)
 app.use("/doctors", doctors)
 
